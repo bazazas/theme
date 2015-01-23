@@ -1,0 +1,2 @@
+# theme
+Bazazas Shopify theme
