@@ -35,11 +35,11 @@ $brown:        rgb(121, 42, 15);
   background-color: transparent;
   text-align: center;
   outline: none;
-  
+
   &:focus, &.has-content {
     border-color: $dark-green;
   }
-  
+
   @include placeholder {
     color: $green;
   }
@@ -51,32 +51,32 @@ $brown:        rgb(121, 42, 15);
     top: 20px;
     right: 20px;
     width: 225px;
-    
+
     .social {
       position: absolute;
       left: 50%;
       margin-left: -50px;
       width: 100px;
     }
-    
+
     .twitter {
       top: 120px;
     }
-    
+
     .email {
       top: 220px;
     }
-    
+
     .link {
       top: 320px;
     }
-    
+
     .share {
       position: static;
       margin-left: 0;
       width: 225px;
     }
-    
+
     .is-mobile & {
       position: absolute;
     }
@@ -110,11 +110,11 @@ body {
 a {
   color: $dark-green;
   text-decoration: none;
-  
+
   img {
     border: none;
   }
-  
+
   &:hover {
     color: $yellow;
     border-color: $yellow !important;
@@ -175,7 +175,7 @@ nav.main {
   left: 10px;
   text-align: center;
   z-index: 5000;
-  
+
   ul {
     list-style: none;
     margin: 0;
@@ -189,7 +189,7 @@ nav.main {
     text-transform: lowercase;
     display: block;
     padding: 0.2em 0;
-    
+
     &:hover {
       color: $dark-green;
     }
@@ -199,10 +199,10 @@ nav.main {
     line-height: 16pt;
   }
   ul li.current a span.P{
-  	
+
   }
   ul li.current a span.r{
-  	
+
   }
   ul li.current a span.o{
   	line-height: 15pt;
@@ -211,30 +211,30 @@ nav.main {
   	line-height: 17pt;
   }
   ul li.current a span.e{
-  	
+
   }
   ul li.current a span.c{
   	line-height: 17pt;
   }
   ul li.current a span.t{
-  	
+
   }
   ul li.current a span.s{
   	line-height: 15pt;
   }
-  
+
   ul li.current a span {
     display: block;
   }
-  
+
   ul a:hover {
     line-height: 14pt;
   }
-  
+
   ul a:hover span:first-child {
     display: block;
   }
-  
+
   ul ul.subnav {
     margin: 10px 0;
     display: none;
@@ -255,23 +255,23 @@ nav.main {
     text-decoration: underline;
   }
 
-  ul ul.subnav li a.current,  ul ul.subnav li.current a{
-    @include avant-garde;
-    font-size: 11pt;
+  ul ul.subnav li a.current,
+  ul ul.subnav li.current a {
+    @include schoolbook;
+    font-size: 12pt;
     line-height: 11pt;
-    margin: 4px 0;
-    border-bottom: 1px solid #a2b6aa;
-    display: inline-block;
-    
+    margin: 0 0 4px;
+    text-decoration: underline;
+
     &:hover {
       text-decoration: none;
     }
   }
-  
+
   .is-mobile & {
     position: absolute;
   }
-  
+
 }
 
 #content {
@@ -354,44 +354,44 @@ h1 a {
 
 article.post {
   margin: 0 0 2em;
-  
+
   h1 {
     a:hover {
       color: inherit;
     }
   }
-  
+
   .content a {
     text-decoration: underline;
   }
-  
+
   .metadata {
     margin: 1em 0 0;
   }
-  
+
   .tags {
     font-size: 10pt;
     text-transform: lowercase;
-    
+
     a {
       text-decoration: underline;
     }
   }
-  
+
   .more {
     @include schoolbook;
     font-size: 10pt;
     white-space: nowrap;
   }
-  
+
   .blog & .social-buttons {
     text-align: left;
     margin: 1em 0;
-    
+
     .social {
       width: 90px;
     }
-    
+
     .share {
       width: 225px;
     }
@@ -399,11 +399,11 @@ article.post {
 }
 
 .blog {
-  
+
   .pagination {
     margin: 1em 0;
   }
-  
+
   .tagged-with {
     @include schoolbook;
     font-size: 10pt;
@@ -415,27 +415,27 @@ article.post {
     text-align: center;
     text-transform: lowercase;
   }
-  
+
 }
 
 .blog-news {
   @include fixed-social-buttons;
-  
+
   body {
     padding: 0;
   }
-  
+
   #content {
     height: 0;
     margin: 0;
     padding: 0;
   }
-  
+
   article h1,
   article .metadata {
     display: none;
   }
-  
+
   .pagination {
     position: fixed;
     left: 0;
@@ -459,7 +459,7 @@ article.post {
   background-image: -webkit-linear-gradient(top, $light-green, $light-yellow); /* For Chrome and Safari */
   background-image:    -moz-linear-gradient(top, $light-green, $light-yellow); /* For old Fx (3.6 to 15) */
   background-image:     -ms-linear-gradient(top, $light-green, $light-yellow); /* For pre-releases of IE 10*/
-  background-image:      -o-linear-gradient(top, $light-green, $light-yellow); /* For old Opera (11.1 to 12.0) */ 
+  background-image:      -o-linear-gradient(top, $light-green, $light-yellow); /* For old Opera (11.1 to 12.0) */
   background-image:         linear-gradient(top, $light-green, $light-yellow); /* Standard syntax; must be last */
   background-attachment: fixed;
 }
@@ -509,7 +509,7 @@ article.post {
 
 /* collabos section */
 .blog-projects{
-	
+
 }
 .blog-projects.template-blog {
 
@@ -520,7 +520,7 @@ article.post {
 }
 
 .blog-projects .blog {
-  
+
   margin: 30px auto;
   padding-top: 70px;
 }
@@ -629,7 +629,7 @@ article.post {
 }
 .template-blog-collabos article.post{
 	margin: 0px 45px 0px 45px;
-	
+
 }
 .template-blog-collabos article.post-excerpt{
 	margin-bottom: 40px;
@@ -702,24 +702,24 @@ article.post {
   width: 260px;
   margin: 0 15px 5px;
   float: left;
-  
+
   h1 {
     font-size: 16pt;
     line-height: 18pt;
     text-transform: none;
   }
-  
+
   .subtitle {
     display: none;
     @include subtitle;
   }
-  
+
   .image img {
     max-width: 150px;
     display: block;
     margin: 54px auto 27px !important;
   }
-  
+
 }
 
 .products .product:hover .image {
@@ -742,7 +742,7 @@ article.post {
 
 #product {
   padding-top: 100px;
-  
+
   .price {
     margin: 1em 0;
   }
@@ -754,7 +754,7 @@ article.post {
   width: 450px;
   margin: 0 15px;
   min-height: 10pt;
-  
+
   img {
     max-width: 395px;
     margin: 0 auto;
@@ -811,7 +811,7 @@ article.post {
 #orbit-container{
 	width: 100%;
 }
-#content #orbit-container img{ 
+#content #orbit-container img{
 	margin: auto;
 	display: inherit;
 }
@@ -823,7 +823,7 @@ article.post {
 button.slick-next, button.slick-next:focus{
 	right: 20px;
 	background-image: url({{ 'fancybox_sprite.png' | asset_url }});
-	background-position: 0px -25px; 
+	background-position: 0px -25px;
 	width: 25px;
 	height: 25px;
 	opacity: 1;
@@ -892,7 +892,7 @@ button.slick-prev::before{
   bottom: 0;
   left: 0;
   width: 100%;
-  
+
   .checkout-button {
     @include avant-garde;
     font-size: 32pt;
@@ -917,7 +917,7 @@ button.slick-prev::before{
       }
     }
   }
-  
+
   .close {
     position: absolute;
     right: 30px;
@@ -925,7 +925,7 @@ button.slick-prev::before{
     height: 50px;
     width: 50px;
     cursor: pointer;
-    
+
     span {
       background-image: url({{ 'fancybox_sprite.png' | asset_url }});
       position: absolute;
@@ -938,7 +938,7 @@ button.slick-prev::before{
       z-index: 8040;
       left: 50%;
       background-position: 0 0;
-      
+
       @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
            only screen and (min--moz-device-pixel-ratio: 1.5),
            only screen and (min-device-pixel-ratio: 1.5){
@@ -946,26 +946,26 @@ button.slick-prev::before{
         background-size: 50px 75px;
       }
     }
-    
+
     .is-mobile & {
       right: 0px;
       top: 0px;
       height: 70px;
       width: 70px;
     }
-    
+
     // &:hover span {
     //   background-position: -25px 0;
     // }
   }
-  
+
   &:hover .close span {
     background-position: -25px 0;
   }
 }
 
 .template-cart {
-  background-color: $light-green; 
+  background-color: $light-green;
 }
 
 #cart {
@@ -1005,7 +1005,7 @@ button.slick-prev::before{
   font-size: 16pt;
   outline: none;
   margin: -0.5em 0;
-  
+
   &#update-cart {
     border: none;
     cursor: pointer;
@@ -1035,7 +1035,7 @@ button.slick-prev::before{
   width: 180px;
   position: relative;
   text-align: center;
-  
+
   input {
     @include avant-garde;
     color: $dark-green;
@@ -1045,7 +1045,7 @@ button.slick-prev::before{
     cursor: pointer;
     text-transform: lowercase;
   }
-  
+
   .back {
     @include schoolbook;
     font-size: 12pt;
@@ -1060,7 +1060,7 @@ button.slick-prev::before{
 .breadcrumb {
 	@include avant-garde;
   @include schoolbook;
-  
+
   font-size: 12pt;
   line-height: 16pt;
   position: absolute;
@@ -1175,7 +1175,7 @@ button.slick-prev::before{
   height: 25px;
   cursor: pointer;
   z-index: 8040;
-  
+
   &:hover {
     background-position: -25px 0;
   }
@@ -1214,7 +1214,7 @@ button.slick-prev::before{
 .fancybox-prev span {
   left: 40px;
   background-position: 0 -50px;
-  
+
   &:hover {
     background-position: -25px -50px;
   }
@@ -1223,7 +1223,7 @@ button.slick-prev::before{
 .fancybox-next span {
   right: 40px;
   background-position: 0 -25px;
-  
+
   &:hover {
     background-position: -25px -25px;
   }
@@ -1318,23 +1318,23 @@ button.slick-prev::before{
   border-width: 0 0 1px;
   padding: 0 10px;
   position: relative;
-  
+
   a {
     cursor: pointer;
     display: block;
     white-space: nowrap;
   }
-  
+
   a.placeholder:hover {
     color: $dark-green;
   }
-  
+
   &.initialized .options {
     display: none;
   }
-  
+
   &.active {
-    
+
     .options {
       border: 1px solid $dark-green;
       display: block;
@@ -1344,9 +1344,9 @@ button.slick-prev::before{
       width: 100%;
       background-color: white;
     }
-    
+
   }
-  
+
 }
 
 /* Article */
@@ -1354,39 +1354,39 @@ button.slick-prev::before{
 .template-article {
   @include fixed-social-buttons;
   background-color: white;
-  
+
   .post {
     width: 700px;
     margin: 0 auto;
     padding-top: 70px;
   }
-  
+
   &.blog-stories .social-buttons, &.blog-projects .social-buttons {
     width: 130px;
-    
+
     .twitter {
       top: 0px;
     }
-    
+
     .email {
       top: 100px;
     }
-    
+
     .link {
       top: 200px;
     }
-    
+
     .share {
       position: absolute;
       top: 300px;
       margin-left: -40px;
-      
+
       background-image: url({{ 'sharev.png' | asset_url }});
       width: 87px;
       height: 225px;
       padding-top: 0;
       background-position: -88px center;
-      
+
       @include on-devices {
         background-image: url({{ 'sharev@2x.png' | asset_url }});
         background-size: 175px 225px;
@@ -1416,7 +1416,7 @@ button.slick-prev::before{
   top: 11px;
   right: 10px;
   width: 120px;
-  
+
   h1 {
     text-align: center;
     text-transform: none;
@@ -1424,16 +1424,16 @@ button.slick-prev::before{
     font-size: 16pt;
     line-height: 18pt;
   }
-  
+
   .template-page &,
   .template-page-small & {
     display: block;
   }
-  
+
   .is-mobile & {
     position: absolute;
   }
-  
+
   .subscribe-link {
     @include schoolbook;
     font-size: 12pt;
@@ -1444,7 +1444,7 @@ button.slick-prev::before{
     text-align: center;
     display: block;
   }
-  
+
 }
 
 #mc_embed_signup {
@@ -1454,7 +1454,7 @@ button.slick-prev::before{
 .subscription-form {
   padding: 50px 0;
   text-align: center;
-  
+
   .indicates-required {
     position: absolute;
     bottom: 10px;
@@ -1463,7 +1463,7 @@ button.slick-prev::before{
     margin-top: 20px;
     text-align: center;
   }
-  
+
   .mc-field-group input {
     @include schoolbook;
     @include form-input;
@@ -1472,14 +1472,14 @@ button.slick-prev::before{
     width: 200px;
     background: none;
   }
-  
+
   label {
     @include schoolbook;
     font-size: 12pt;
     line-height: 16pt;
     letter-spacing: 1px;
   }
-  
+
   .button {
     @include avant-garde;
     font-weight: normal;
@@ -1519,73 +1519,73 @@ button.slick-prev::before{
   overflow: hidden;
   color: $dark-green;
   white-space: nowrap;
-  
+
   @include on-devices {
     background-size: 60px 60px;
   }
-  
+
   &:hover, &.zeroclipboard-is-hover {
     text-indent: 0;
     color: $dark-green !important;
   }
-  
+
   &:active, &.active {
     @extend .smoosh;
   }
-  
+
   .template-index & label {
     background-color: white;
     padding: 1px 3px 4px 5px;
   }
 }
 
-.smoosh { 
+.smoosh {
   background-image: url({{ 'smoosh.png' | asset_url }});
-  
+
   @include on-devices {
     background-image: url({{ 'smoosh@2x.png' | asset_url }});
   }
 }
 
-.twitter { 
+.twitter {
   background-image: url({{ 'twitter.png' | asset_url }});
-  
+
   @include on-devices {
     background-image: url({{ 'twitter@2x.png' | asset_url }});
   }
 }
 
-.instagram { 
+.instagram {
   background-image: url({{ 'instagram.png' | asset_url }});
-  
+
   @include on-devices {
     background-image: url({{ 'instagram@2x.png' | asset_url }});
   }
 }
 
-.tumblr { 
+.tumblr {
   background-image: url({{ 'tumblr.png' | asset_url }});
-  
+
   @include on-devices {
     background-image: url({{ 'tumblr@2x.png' | asset_url }});
   }
 }
 
-.email { 
+.email {
   background-image: url({{ 'email.png' | asset_url }});
-  
+
   @include on-devices {
     background-image: url({{ 'email@2x.png' | asset_url }});
   }
 }
 
-.link { 
+.link {
   background-image: url({{ 'link.png' | asset_url }});
-  
+
   @include on-devices {
     background-image: url({{ 'link@2x.png' | asset_url }});
   }
-  
+
   .is-mobile & { display: none; }
 }
 
@@ -1593,7 +1593,7 @@ button.slick-prev::before{
   width: 225px;
   height: 88px;
   padding: 0;
-  
+
   &, &:active {
     background-image: url({{ 'share.png' | asset_url }});
 
@@ -1603,11 +1603,11 @@ button.slick-prev::before{
     }
   }
 
-  
+
   &:hover {
     background-position: center -88px;
   }
-  
+
   div {
     height: 88px;
     width: 225px;
@@ -1631,13 +1631,13 @@ button.slick-prev::before{
 		.template-blog-collabos .excerpt .social-buttons{
 			visibility: visible;
 			background-size: auto;
-			
-		}  
+
+		}
 		.template-blog-collabos .excerpt .social-buttons{
 			background-size: auto;
-		}  
+		}
 		.template-blog-collabos .link, .template-blog-collabos .share, .template-blog-collabos .email, .template-blog-collabos .twitter{
 			background-size: auto;
 			background-image: url({{ 'sprite.png' | asset_url }});
-		} 
+		}
 }
