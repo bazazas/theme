@@ -1,0 +1,25 @@
+<div class="blog">
+  
+  {% if current_tags %}
+    <div class="tagged-with">
+      Filed under {{ current_tags.first }}
+    </div>
+  {% endif %}
+
+  {% paginate blog.articles by 10 %}
+  
+  <div class="articles">
+    
+    {% include 'article' with blog.articles %}
+    
+  </div>
+  
+  <div class="pagination">
+    {% include 'pagination' %}
+  </div>
+  
+  {% endpaginate %}
+  
+</div>
+
+{% include 'cart-link' %}

@@ -1,0 +1,11 @@
+<article class="
+  {% if article-news.tags contains 'big-image' %}big-image{% endif %}
+  {% if article-news.tags contains 'tiled-image' %}tiled-image{% endif %}
+">
+  <h1>{{ article-news.title }}</h1>
+  <h1>{{ article_news.title }}</h1>
+  <h1>{{ articleNews.title }}</h1>
+  <div class="content">
+    {{ article-news.excerpt_or_content }}
+  </div>
+</article>

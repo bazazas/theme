@@ -1,0 +1,8 @@
+{% if blogs.news.articles_count > 1 %}
+  <div class="pagination index-pagination">
+    {% assign i = blogs.news.articles_count %}
+    {% for article in blogs.news.articles %}
+      <a href="{{ article.url }}" {% if article.id == current_article.id %}class="current"{% endif %}>{{ i | minus: forloop.index0 }}</a>
+    {% endfor %}
+  </div>
+{% endif %}

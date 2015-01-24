@@ -1,0 +1,37 @@
+{% capture collection_handle %}{{ product-loop | handleize }}{% endcapture %}
+{% capture url %}{% if collection_handle != "" %}/collections/{{ product-loop }}{{ product.url }}{% else %}{{ product.url }}{% endif %}{% endcapture %}
+<a href="{{ product.url }}">
+
+  <div class="product">
+  
+    {% if product.price_min < product.compare_at_price_min %}
+      <span class="sale">Sale</span>
+    {% endif %}
+  
+    <div class="image">
+      <img src="{{ product.featured_image | product_img_url: 'large' }}" 
+           alt="{{ product.title | escape  }}" />
+    </div>
+  
+    <div class="details">
+      <h1 class="title">{{ product.title }}</h1>
+      <div class="subtitle">
+        {{ product.description }}
+      </div>
+    
+      <div class="price">
+        {% if product.available %}
+          {% if product.compare_at_price_max > product.price %}
+            <del>{{ product.compare_at_price | money }}</del>
+          {% endif %}
+          {% if product.price_varies %}
+          <small>from</small>
+          {% endif %}
+          {{ product.price | money }}
+        {% else %}
+          {% include "sold-out" with product %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</a>

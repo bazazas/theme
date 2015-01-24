@@ -1,0 +1,28 @@
+{% capture title %}{{ share-links.title }}{% endcapture %}
+{% capture url %}{{ shop.url }}{{ share-links.url }}{% endcapture %}
+
+<div class="social-buttons addthis_toolbox addthis_default_style"
+  addthis:url="{{ url }}"
+  addthis:title="{{ title }}">
+  
+  <a class="social twitter" 
+    href="https://twitter.com/intent/tweet?text={{ title }} from BAZAZAS&url={{ url }}"
+    target="_blank">
+    <label>Tweet</label>
+  </a>
+
+  <a class="social email" 
+    href="mailto:?subject={{ title }} from BAZAZAS&body={{ url }}">
+    <label>Email</label>
+  </a>
+  
+  <a class="social link"
+    data-clipboard-text="{{ url }}">
+    <label>Copy Link</label>
+  </a>
+  
+  <a class="addthis_button_compact social share">
+    <div></div>
+  </a>
+  
+</div>

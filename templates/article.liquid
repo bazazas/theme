@@ -1,0 +1,10 @@
+{% assign current_article = article %}
+
+{% if blog.handle == 'news' %}
+  {% include 'article-news' with current_article %}
+  {% include 'pagination.news' %}
+{% else %}
+  {% include 'article' with current_article %}
+  {% include 'cart-link' %}
+{% endif %}
+

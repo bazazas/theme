@@ -1,0 +1,10 @@
+{% assign tags = article-tags.tags %}
+{% if tags.size > 0 %}
+  <span class="tags">
+    Filed under
+    {% for tag in tags %}
+      {% if forloop.last && forloop.index0 != 0 %} and {% endif %}
+      {{ tag | link_to_tag: tag }}{% unless forloop.last %}, {% endunless %}
+    {% endfor %}
+  </span>
+{% endif %}

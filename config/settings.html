@@ -1,0 +1,591 @@
+<div class="documentation-header">
+
+  <p><strong>Support:</strong> <a href="mailto:designguru@shopify.com">designguru@shopify.com</a></p>
+  <br />
+</div>
+
+<fieldset>
+  <legend>Aesthetics</legend>
+  <table>
+    <tr>
+      <td colspan="2">
+        <h3>Logo, favicon, and cart settings</h3>
+      </td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="use_logo">Use a custom logo?</label></th>
+      <td>
+        <input type="checkbox" id="use_logo" name="use_logo" value="1" />
+      </td>
+    </tr>
+    <tr>
+      <th><label for="logo">Shop logo</label><small> (should be less than 700 pixels wide)</small></th>
+      <td>
+        <input type="file" id="logo" name="logo.png" data-max-width="996" data-max-height="600" />
+      </td>
+    </tr>
+    <tr>
+      <th><label for="logo">Upload a favicon<br /><small>Must be 16x16px</small></label></th>
+      <td>
+        <input type="file" id="logo" name="favicon.png" data-max-width="16" data-max-height="16" />
+      </td>
+    </tr>
+
+  </table>
+
+  <table>
+    <tr>
+      <td colspan="2">
+        <h3>Colors</h3>
+      </td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="shop_bg_color">Website background color</label></th>
+      <td><input id="shop_bg_color" name="shop_bg_color" class="color" value="#ffffff" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="toolbar_bg_color">Top toolbar background color</label></th>
+      <td><input id="toolbar_bg_color" name="toolbar_bg_color" class="color" value="#000000" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="toolbar_text_color">Top toolbar text color</label></th>
+      <td><input id="toolbar_text_color" name="toolbar_text_color" class="color" value="#bbbbbb" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="link_color">Link color</label></th>
+      <td><input id="link_color" name="link_color" class="color" value="#f45b4f" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="nav_link_color">Nav link color</label></th>
+      <td><input id="nav_link_color" name="nav_link_color" class="color" value="#888888" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="body_font_color">Text color</label></th>
+      <td>
+        <input id="body_font_color" name="body_font_color" class="color" value="#555555" />
+      </td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="header_color">Heading text color</label></th>
+      <td><input id="header_color" name="header_color" class="color" value="#333333" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="shop_btn_color">Button background color</label></th>
+      <td><input id="shop_btn_color" name="shop_btn_color" class="color" value="#f45b4f" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="border_color">General border color</label></th>
+      <td><input id="border_color" name="border_color" class="color" value="#dddddd" /></td>
+    </tr>
+
+    <tr>
+      <th><label for="icon_cart">Cart icon</label></th>
+      <td>
+        <input type="radio" name="icon_cart" value="none" /> None
+        <input type="radio" name="icon_cart" value="light" selected="selected" /> Light
+        <input type="radio" name="icon_cart" value="dark" /> Dark
+      </td>
+    </tr>   
+  </table>
+
+  <table>
+    <tr>
+      <td colspan="2">
+        <h3>Font options</h3>
+      </td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="base_font">Base Font</label></th>
+      <td>
+        <select name="base_font" id="google_font" class="font">
+          <optgroup label="Google Web Fonts">          
+            <option value='Google+Arvo'>Arvo</option>
+            <option value='Google+Asap'>Asap</option>
+            <option value='Google+Cabin'>Cabin</option>
+            <option value='Google+Copse'>Copse</option>
+            <option value='Google+Droid+Sans'>Droid Sans</option>
+            <option value='Google+Droid+Serif'>Droid Serif</option>
+            <option value='Google+Gentium+Book+Basic'>Gentium Book Basic</option>
+            <option value='Google+Josefin+Slab'>Josefin Slab</option>
+            <option value='Google+Josefin+Sans'>Josefin Sans</option>
+            <option value='Google+Kreon'>Kreon</option>
+            <option value='Google+Lato'>Lato</option>
+            <option value='Google+Merriweather'>Merriweather</option>
+            <option value='Google+Old+Standard+TT'>Old Standard TT</option>
+            <option value='Google+Open+Sans'>Open Sans</option>
+          </optgroup>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="horizontal">
+      <th><label for="header_font">Heading Font</label></th>
+      <td>
+        <select name="header_font" id="google_header_font" class="font">
+          <optgroup label="Google Web Fonts">          
+            <option value='Google+Arvo'>Arvo</option>
+            <option value='Google+Asap'>Asap</option>
+            <option value='Google+Cabin'>Cabin</option>
+            <option value='Google+Copse'>Copse</option>
+            <option value='Google+Droid+Sans'>Droid Sans</option>
+            <option value='Google+Droid+Serif'>Droid Serif</option>
+            <option value='Google+Gentium+Book+Basic'>Gentium Book Basic</option>
+            <option value='Google+Josefin+Slab'>Josefin Slab</option>
+            <option value='Google+Josefin+Sans'>Josefin Sans</option>
+            <option value='Google+Kreon'>Kreon</option>
+            <option value='Google+Lato'>Lato</option>
+            <option value='Google+Merriweather'>Merriweather</option>
+            <option value='Google+Old+Standard+TT'>Old Standard TT</option>
+            <option value='Google+Open+Sans'>Open Sans</option>
+          </optgroup>
+        </select>
+      </td>
+    </tr>
+
+  </table>
+
+</fieldset>
+
+<fieldset>
+  <legend>Homepage</legend>
+  <table>
+    <tr>
+      <td colspan="2">
+        <h3>Homepage Content</h3>
+      </td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="homepage">Page to show on homepage</label><small>You can include a Page on the homepage</small></th>
+      <td><select class="page" name="homepage" id="homepage"  /></td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <h3>Additional featured products</h3>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="enable_featuredproduct">Show single featured product banner</label><small>To hide featured product just uncheck</small></th>
+      <td><input type="checkbox" id="enable_featuredproduct" name="enable_featuredproduct" value="1" /></td>
+    </tr>
+    
+    <tr class="horizontal">
+      <th><label for="frontpage_collection">Featured products</label><small>Products in this collection will be on the homepage</small></th>
+      <td><select name="frontpage_collection" class="collection"  /></td>
+    </tr>
+    
+    <tr>
+      <td colspan="2">
+        <h3>Slideshow banner</h3>
+        For best results, upload images that are at least 966px wide. Try to keep your slideshow images the same size.
+      </td>
+    </tr>
+    
+    <!--<tr>
+      <table class="standard-table">
+        <tr>
+          <td></td>
+          <td>Show?</td>
+          <td>Image</td>
+          <td>Links to</td>
+          <td>ALT text</td>
+        </tr>
+        <tr class="odd">
+          <td><label>Slide #1</label></td>
+          <td><input type="checkbox" id="slide_1" name="slide_1" value="1" /></td>
+          <td><input type="file" id="slide_1" name="slideshow_1.jpg" data-max-width="966" /></td>
+          <td><input type="text" id="slide_1_link" name="slide_1_link" value="/collections/all" /></td>
+          <td><input type="text" id="slide_1_alt" name="slide_1_alt" /></td>
+        </tr>
+        <tr class="even">
+          <td><label>Slide #2</label></td>
+          <td><input type="checkbox" id="slide_2" name="slide_2" value="1"/></td>
+          <td><input type="file" id="slide_2" name="slideshow_2.jpg" data-max-width="966" /></td>
+          <td><input type="text" id="slide_2_link" name="slide_2_link" value="/collections/all" /></td>
+          <td><input type="text" id="slide_2_alt" name="slide_2_alt" /></td>
+        </tr>
+        <tr class="odd">
+          <td><label>Slide #3</label></td>
+          <td><input type="checkbox" id="slide_3" name="slide_3" value="1" /></td>
+          <td><input type="file" id="slide_3" name="slideshow_3.jpg" data-max-width="966" /></td>
+          <td><input type="text" id="slide_3_link" name="slide_3_link" /></td>
+          <td><input type="text" id="slide_3_alt" name="slide_3_alt" /></td>
+        </tr>
+        <tr class="even">
+          <td><label>Slide #4</label></td>
+          <td><input type="checkbox" id="slide_4" name="slide_4" value="1" /></td>
+          <td><input type="file" id="slide_4" name="slideshow_4.jpg" data-max-width="966" /></td>
+          <td><input type="text" id="slide_4_link" name="slide_4_link" /></td>
+          <td><input type="text" id="slide_4_alt" name="slide_4_alt" /></td>
+        </tr>
+      </table>
+    </tr>-->
+
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Product Page</legend>
+  <table>
+    <tr class="horizontal">
+      <th><label for="enable_product_image_zoom">Enable image zoom feature?</label></th>
+      <td><input type="checkbox" id="enable_product_image_zoom" name="enable_product_image_zoom" value="1" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="display_quantity_dropdown">Display Quantity Box?</label></th>
+      <td>
+        <input type="checkbox" id="display_quantity_dropdown" name="display_quantity_dropdown" value="1" />
+      </td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="show_related_products">Display related products?</label></th>
+      <td><input type="checkbox" id="show_related_products" name="show_related_products" value="1" checked="checked" /></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Collection Page</legend>
+  <table>
+    <tr class="horizontal">
+      <th><label for="collection_tags">Display browse by product tags?</label></th>
+      <td>
+        <input type="checkbox" id="collection_tags" name="collection_tags" value="1" checked="checked" />
+      </td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="pagination_limit">Number of products to display</label></th>
+      <td>
+        <select name="pagination_limit" id="pagination_limit">
+          <option value="96">96</option>
+          <option value="84">84</option>
+          <option value="72">72</option>
+          <option value="60">60</option>	
+          <option value="48">48</option>
+          <option value="36">36</option>
+          <option value="24" selected="selected">24</option>
+          <option value="12">12</option>
+          <option value="9">9</option>
+          <option value="8">8</option>
+          <option value="6">6</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <h3>Collections Page Orbit Slides</h3>
+  <table>
+  	
+  	<tr class="horizontal">
+  	  <th><label for="use-orbit">Use Orbit Slides?</label></th>
+  	  <td>
+  	    <input type="checkbox" id="use-orbit" name="use-orbit" value="1" checked="checked" />
+  	  </td>
+  	</tr>
+  	</table>
+  	<h3></h3>
+
+	<table class="standard-table">
+	<tr>
+	    <td></td>
+	    <td>Show?</td>
+	    <td>Image</td>
+	    <td>Links to</td>
+	    
+	  </tr>
+	  <tr class="odd">
+	      <td><label>Slide #1</label></td>
+	      <td><input type="checkbox" id="use-orbit-1" name="use-orbit-1" value="1" /></td>
+	      <td><input type="file" id="orbit-1" name="slide1.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-1-link" name="orbit-1-link"/></td>
+	   </tr>
+	  <tr class="even">
+	      <td><label>Slide #2</label></td>
+	      <td><input type="checkbox" id="use-orbit-2" name="use-orbit-2" value="1" /></td>
+	      <td><input type="file" id="orbit-2" name="slide2.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-2-link" name="orbit-2-link"/></td>
+	  </tr> 
+	  <tr class="odd">
+	      <td><label>Slide #3</label></td>
+	      <td><input type="checkbox" id="use-orbit-3" name="use-orbit-3" value="1" /></td>
+	      <td><input type="file" id="orbit-3" name="slide3.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-3-link" name="orbit-3-link"/></td>
+	   </tr>
+	  <tr class="even">
+	      <td><label>Slide #4</label></td>
+	      <td><input type="checkbox" id="use-orbit-4" name="use-orbit-4" value="1" /></td>
+	      <td><input type="file" id="orbit-4" name="slide4.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-4-link" name="orbit-4-link"/></td>
+	  </tr>
+	  <tr class="odd">
+	      <td><label>Slide #5</label></td>
+	      <td><input type="checkbox" id="use-orbit-5" name="use-orbit-5" value="1" /></td>
+	      <td><input type="file" id="orbit-5" name="slide5.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-5-link" name="orbit-5-link"/></td>
+	   </tr>
+	  <tr class="even">
+	      <td><label>Slide #6</label></td>
+	      <td><input type="checkbox" id="use-orbit-6" name="use-orbit-6" value="1" /></td>
+	      <td><input type="file" id="orbit-6" name="slide6.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-6-link" name="orbit-6-link"/></td>
+	  </tr> 
+	  <tr class="odd">
+	      <td><label>Slide #7</label></td>
+	      <td><input type="checkbox" id="use-orbit-7" name="use-orbit-7" value="1" /></td>
+	      <td><input type="file" id="orbit-7" name="slide7.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-7-link" name="orbit-7-link"/></td>
+	   </tr>
+	  <tr class="even">
+	      <td><label>Slide #8</label></td>
+	      <td><input type="checkbox" id="use-orbit-8" name="use-orbit-8" value="1" /></td>
+	      <td><input type="file" id="orbit-8" name="slide8.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-8-link" name="orbit-8-link"/></td>
+	  </tr> 
+	  <tr class="odd">
+	      <td><label>Slide #9</label></td>
+	      <td><input type="checkbox" id="use-orbit-9" name="use-orbit-9" value="1" /></td>
+	      <td><input type="file" id="orbit-9" name="slide9.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-9-link" name="orbit-9-link"/></td>
+	   </tr>
+	  <tr class="even">
+	      <td><label>Slide #10</label></td>
+	      <td><input type="checkbox" id="use-orbit-10" name="use-orbit-10" value="1" /></td>
+	      <td><input type="file" id="orbit-10" name="slide10.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-10-link" name="orbit-10-link"/></td>
+	  </tr>
+	  <tr class="odd">
+	      <td><label>Slide #11</label></td>
+	      <td><input type="checkbox" id="use-orbit-11" name="use-orbit-11" value="1" /></td>
+	      <td><input type="file" id="orbit-11" name="slide11.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-11-link" name="orbit-11-link"/></td>
+	   </tr>
+	  <tr class="even">
+	      <td><label>Slide #12</label></td>
+	      <td><input type="checkbox" id="use-orbit-12" name="use-orbit-12" value="1" /></td>
+	      <td><input type="file" id="orbit-12" name="slide12.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-12-link" name="orbit-12-link"/></td>
+	  </tr> 
+	  <tr class="odd">
+	      <td><label>Slide #13</label></td>
+	      <td><input type="checkbox" id="use-orbit-13" name="use-orbit-13" value="1" /></td>
+	      <td><input type="file" id="orbit-13" name="slide13.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-13-link" name="orbit-13-link"/></td>
+	   </tr>
+	  <tr class="even">
+	      <td><label>Slide #14</label></td>
+	      <td><input type="checkbox" id="use-orbit-14" name="use-orbit-14" value="1" /></td>
+	      <td><input type="file" id="orbit-14" name="slide14.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-14-link" name="orbit-14-link"/></td>
+	  </tr> 
+	  <tr class="odd">
+	      <td><label>Slide #15</label></td>
+	      <td><input type="checkbox" id="use-orbit-15" name="use-orbit-15" value="1" /></td>
+	      <td><input type="file" id="orbit-15" name="slide15.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-15-link" name="orbit-15-link"/></td>
+	   </tr>
+	  <tr class="even">
+	      <td><label>Slide #16</label></td>
+	      <td><input type="checkbox" id="use-orbit-16" name="use-orbit-16" value="1" /></td>
+	      <td><input type="file" id="orbit-16" name="slide16.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-16-link" name="orbit-16-link"/></td>
+	  </tr>
+	  <tr class="odd">
+	      <td><label>Slide #17</label></td>
+	      <td><input type="checkbox" id="use-orbit-17" name="use-orbit-17" value="1" /></td>
+	      <td><input type="file" id="orbit-17" name="slide17.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-17-link" name="orbit-17-link"/></td>
+	   </tr>
+	  <tr class="even">
+	      <td><label>Slide #18</label></td>
+	      <td><input type="checkbox" id="use-orbit-18" name="use-orbit-18" value="1" /></td>
+	      <td><input type="file" id="orbit-18" name="slide18.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-18-link" name="orbit-18-link"/></td>
+	  </tr> 
+	  <tr class="odd">
+	      <td><label>Slide #19</label></td>
+	      <td><input type="checkbox" id="use-orbit-19" name="use-orbit-19" value="1" /></td>
+	      <td><input type="file" id="orbit-19" name="slide19.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-19-link" name="orbit-19-link"/></td>
+	   </tr>
+	  <tr class="even">
+	      <td><label>Slide #20</label></td>
+	      <td><input type="checkbox" id="use-orbit-20" name="use-orbit-20" value="1" /></td>
+	      <td><input type="file" id="orbit-20" name="slide20.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-20-link" name="orbit-20-link"/></td>
+	  </tr> 
+	  <tr class="odd">
+	      <td><label>Slide #21</label></td>
+	      <td><input type="checkbox" id="use-orbit-21" name="use-orbit-21" value="1" /></td>
+	      <td><input type="file" id="orbit-21" name="slide21.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-21-link" name="orbit-21-link"/></td>
+	   </tr>
+	  <tr class="even">
+	      <td><label>Slide #22</label></td>
+	      <td><input type="checkbox" id="use-orbit-22" name="use-orbit-22" value="1" /></td>
+	      <td><input type="file" id="orbit-22" name="slide22.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-22-link" name="orbit-22-link"/></td>
+	  </tr>
+	  <tr class="odd">
+	      <td><label>Slide #21</label></td>
+	      <td><input type="checkbox" id="use-orbit-21" name="use-orbit-21" value="1" /></td>
+	      <td><input type="file" id="orbit-21" name="slide21.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-21-link" name="orbit-21-link"/></td>
+	   </tr>
+	  <tr class="even">
+	      <td><label>Slide #22</label></td>
+	      <td><input type="checkbox" id="use-orbit-22" name="use-orbit-22" value="1" /></td>
+	      <td><input type="file" id="orbit-22" name="slide22.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-22-link" name="orbit-22-link"/></td>
+	  </tr> 
+	  <tr class="odd">
+	      <td><label>Slide #23</label></td>
+	      <td><input type="checkbox" id="use-orbit-23" name="use-orbit-23" value="1" /></td>
+	      <td><input type="file" id="orbit-23" name="slide23.jpg" data-max-width="870" /></td>
+	      <td><input type="text" id="orbit-23-link" name="orbit-23-link"/></td>
+	   </tr>
+	   <tr class="even">
+	       <td><label>Slide #24</label></td>
+	       <td><input type="checkbox" id="use-orbit-24" name="use-orbit-24" value="1" /></td>
+	       <td><input type="file" id="orbit-24" name="slide24.jpg" data-max-width="870" /></td>
+	       <td><input type="text" id="orbit-24-link" name="orbit-24-link"/></td>
+	   </tr> 
+	   <tr class="odd">
+	       <td><label>Slide #25</label></td>
+	       <td><input type="checkbox" id="use-orbit-25" name="use-orbit-25" value="1" /></td>
+	       <td><input type="file" id="orbit-25" name="slide25.jpg" data-max-width="870" /></td>
+	       <td><input type="text" id="orbit-25-link" name="orbit-25-link"/></td>
+	    </tr>
+	   <tr class="even">
+	       <td><label>Slide #26</label></td>
+	       <td><input type="checkbox" id="use-orbit-26" name="use-orbit-26" value="1" /></td>
+	       <td><input type="file" id="orbit-26" name="slide26.jpg" data-max-width="870" /></td>
+	       <td><input type="text" id="orbit-26-link" name="orbit-26-link"/></td>
+	   </tr>
+	   <tr class="odd">
+	       <td><label>Slide #27</label></td>
+	       <td><input type="checkbox" id="use-orbit-27" name="use-orbit-27" value="1" /></td>
+	       <td><input type="file" id="orbit-27" name="slide27.jpg" data-max-width="870" /></td>
+	       <td><input type="text" id="orbit-27-link" name="orbit-27-link"/></td>
+	    </tr>
+	   <tr class="even">
+	       <td><label>Slide #28</label></td>
+	       <td><input type="checkbox" id="use-orbit-28" name="use-orbit-28" value="1" /></td>
+	       <td><input type="file" id="orbit-28" name="slide28.jpg" data-max-width="870" /></td>
+	       <td><input type="text" id="orbit-28-link" name="orbit-28-link"/></td>
+	   </tr> 
+	   <tr class="odd">
+	       <td><label>Slide #29</label></td>
+	       <td><input type="checkbox" id="use-orbit-29" name="use-orbit-29" value="1" /></td>
+	       <td><input type="file" id="orbit-29" name="slide29.jpg" data-max-width="870" /></td>
+	       <td><input type="text" id="orbit-29-link" name="orbit-29-link"/></td>
+	    </tr>
+	   <tr class="even">
+	       <td><label>Slide #30</label></td>
+	       <td><input type="checkbox" id="use-orbit-30" name="use-orbit-30" value="1" /></td>
+	       <td><input type="file" id="orbit-30" name="slide30.jpg" data-max-width="870" /></td>
+	       <td><input type="text" id="orbit-30-link" name="orbit-30-link"/></td>
+	   </tr>
+	  		  		   
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Footer</legend>
+  <table>
+    <tr class="horizontal">
+      <th><label for="footer_linklist_title">Footer link list heading</label></th>
+      <td><input type="text" id="footer_linklist_title" name="footer_linklist_title" value="Quick Links" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="footer_linklist">Footer link list to show</label></th>
+      <td><select name="footer_linklist" class="linklist" value="footer" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="footer_blog_post_header">Latest blog post header:</label></th>
+      <td><input type="text" id="footer_blog_post_header" name="footer_blog_post_header" value="Latest news" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="footer_blog_post">Blog to use for latest blog post:</label></th>
+      <td><select name="footer_blog_post" class="blog" value="" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="footer_display_newsletter">Show newsletter?</label></th>
+      <td><input type="checkbox" id="footer_display_newsletter" name="footer_display_newsletter" value="1" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="mailing_list_form_action">Mailchimp form action URL</label></th>
+      <td><input type="text" id="mailing_list_form_action" name="mailing_list_form_action" value="" /></td>
+      <td><a href="http://support.shopify.com/customer/portal/articles/640278" target="_blank">Where do I find my Mailchimp form action URL?</a></td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <h3>Social Links</h3>
+      </td> 
+    </tr>
+
+    <tr class="horizontal">
+
+
+      <table>
+        <tr class="odd">
+          <td><label for="show_carousel_item_4">Twitter</label></td>
+          <td><input type="text" id="twitter_link" name="twitter_link" /></td>
+        </tr>
+        <tr class="odd">
+          <td><label for="facebook_link">Facebook</label></td>
+          <td><input type="text" id="facebook_link" name="facebook_link" /></td>
+        </tr>
+        <tr class="odd">
+          <td><label for="google_link">Google+ Link</label></td>
+          <td><input type="text" id="google_link" name="google_link" /></td>
+        </tr>
+        <tr class="odd">
+          <td><label for="youtube_link">Youtube Link</label></td>
+          <td><input type="text" id="youtube_link" name="youtube_link" /></td>
+        </tr>
+        <tr class="odd">
+          <td><label for="vimeo_link">Vimeo Link</label></td>
+          <td><input type="text" id="vimeo_link" name="vimeo_link" /></td>
+        </tr>
+        <tr class="odd">
+          <td><label for="pinterest_link">Pinterest Link</label></td>
+          <td><input type="text" id="pinterest_link" name="pinterest_link" /></td>
+        </tr>
+        <tr class="odd">
+          <td><label for="instagram_link">Instagram Link</label></td>
+          <td><input type="text" id="instagram_link" name="instagram_link" /></td>
+        </tr>
+        <tr class="odd">
+          <td><label for="tumblr_link">Tumblr Link</label></td>
+          <td><input type="text" id="tumblr_link" name="tumblr_link" /></td>
+        </tr>
+        <tr class="odd">
+          <td><label for="atom_link">Blog feed</label></td>
+          <td><input type="text" id="atom_link" name="atom_link" /></td>
+        </tr>         
+      </table>
+    </tr>
+
+
+
+    <tr>
+      <td colspan="2">
+        <h3>Payment Method Icons</h3>
+      </td> 
+    </tr>
+    <tr>
+      <th><label for="payment_methods">Payment Methods:</label></th>
+      <td>
+        <input type="checkbox" id="accept_visa" name="accept_visa" value="1" />Visa
+        <input type="checkbox" id="accept_mastercard" name="accept_mastercard" value="1" />Mastercard
+        <input type="checkbox" id="accept_amex" name="accept_amex" value="1" /> American Express
+        <input type="checkbox" id="accept_cirrus" name="accept_cirrus" value="1" />Cirrus
+        <input type="checkbox" id="accept_delta" name="accept_delta" value="1" />Delta
+        <input type="checkbox" id="accept_discover" name="accept_discover" value="1" />Discover
+        <input type="checkbox" id="accept_westernunion" name="accept_westernunion" value="1" />Western Union
+        <input type="checkbox" id="accept_paypal" name="accept_paypal" value="1" />PayPal
+        <input type="checkbox" id="accept_google" name="accept_google" value="1" />Google
+      </td>
+    </tr>
+    
+  </table>
+</fieldset>

@@ -1,0 +1,399 @@
+$(function(){
+
+  formatNavigation();
+  fixNavigation();
+  fixFullStoryLinks();
+  fixDoubleReturns();
+  watchSocialButtons();
+
+  $('#content p img').parents('p').next().addClass('first');
+
+  var $pagination = $('.blog-news .pagination');
+  if ($pagination.length) {
+    var $current = $pagination.find('.current');
+    var $previous = $current.prev().clone().html('&lt;');
+    var $next = $current.next().clone().html('&gt;');
+    $pagination.append($next);
+    $pagination.prepend($previous);
+  };
+
+  if ($('.page-store').length) {
+    $.backstretch("{{ 'store-background.jpg' | asset_url }}");
+  };
+
+  $('article.big-image').each(function(){
+    image = $('img', this).first();
+    $.backstretch(image.attr('src'));
+    image.stretchImageLink();
+    image.remove();
+  });
+
+  $('article.tiled-image').each(function(){
+    image = $('img', this).first();
+    $('html').css('background', "white url(" + image.attr('src') + ") repeat scroll center center");
+    image.stretchImageLink();
+    image.remove();
+  });
+
+  $('.products .product').addClass('loading').imagesLoaded()
+    .progress(function(instance, image){
+      var $product = $(image.img).parents('.product');
+      var $subtitle = $product.find('.subtitle h1');
+      $product.removeClass('loading');
+      if ($.trim($subtitle.text()) != '') {
+        $product.find('.subtitle').text($subtitle.text()).show()
+      } else {
+        $subtitle.remove()
+      }
+      $('.products').masonry({ transitionDuration: 0 });
+    });
+
+   /* --Masonry for the collabos secondary blog-- */
+   $('.collabos .post').addClass('loading').imagesLoaded()
+     .progress(function(instance, image){
+       var $product = $(image.img).parents('.post');
+       var $subtitle = $product.find('.subtitle h1');
+       $product.removeClass('loading');
+       if ($.trim($subtitle.text()) != '') {
+         $product.find('.subtitle').text($subtitle.text()).show()
+       } else {
+         $subtitle.remove()
+       }
+       $('.collabos .articles').masonry({
+       		columnWidth: 480,
+       		isFitWidth: true,
+       		transitionDuration: 0
+       	});
+     });
+
+  if (!$.browser.mobile) {
+    $('.fancybox').fancybox({
+      padding: 27,
+      margin: 85,
+      afterShow: function() {
+        if($('.fancybox-frame').length == 0){
+          this.wrap.after('<div class="fancybox-frame">');
+        }
+        $('.fancybox-frame').find('.fancybox-nav, .fancybox-close').remove();
+        $('.fancybox-nav, .fancybox-close').appendTo($('.fancybox-frame'));
+      },
+      openEffect: 'none',
+      closeEffect: 'none',
+      nextEffect: 'none',
+      prevEffect: 'none'
+    });
+  } else {
+    $('.fancybox').click(function(){ return false })
+  }
+
+  $('textarea').autogrow()
+  $('textarea, input').addContentClass().change(function(){
+    $(this).addContentClass()
+  })
+
+  $('.orbit').slick({
+    dots: false,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    adaptiveHeight: true
+  });
+
+  $('.subnav a').hover(function(e){
+    $(this).attr('data-title', $(this).attr('title'));
+    $(this).removeAttr('title');
+  }, function(e){
+    $(this).attr('title', $(this).attr('data-title'));
+  })
+
+  var date = new Date;
+  var day = isoDay(date);
+  $('html').addClass('day-' + day);
+
+  if ($('html').hasClass('template-blog') && day > 2) {
+    $('body').append(spots());
+  }
+
+  $('#add-item-form').ajaxForm({
+    beforeSubmit: function(arr, $form, options){
+      $form.updateCartQuantity();
+      $form.offerCartButton();
+    },
+  });
+
+  var FauxSelect = function(element) {
+    var self = this
+
+    this.$select = $(element);
+    this.$options = $('<div class="options"></div>')
+    this.$placeholder = $('<a class="placeholder"></a>')
+    this.$selected = $()
+    this.$el = $('<div class="faux-select">');
+
+    this.init = function(){
+      this.$select.hide();
+      this.$select.after(this.$el);
+      this.$el.append(this.$placeholder);
+      this.$el.append(this.$options);
+      this.$select.find('option').each(function(){
+        self.addOption(this)
+      })
+      this.$el.css('width', self.$options.width())
+
+      this.$el.on('click', '.placeholder', function(){
+        self.$el.addClass('active')
+        self.$options.css({
+          marginTop: self.topOffset()
+        })
+        setTimeout(function(){
+          $('body').one('click', function(event){
+            self.$el.removeClass('active')
+          })
+        }, 100)
+      })
+
+      this.$el.on('click', '.option', function(){
+        self.makeSelected($(this))
+      })
+
+      this.$el.addClass('initialized')
+    }
+
+    this.makeSelected = function(option) {
+      self.$select.val(option.data('value'))
+      self.$placeholder.text(option.text())
+      self.$selected = option
+      option.siblings().removeClass('selected')
+      option.addClass('selected')
+    }
+
+    this.addOption = function(original) {
+      var option = $('<a class="option"></a>')
+      option.text($(original).text())
+      option.attr('data-value', $(original).val())
+      if (self.$select.val() == $(original).val()) {
+        self.makeSelected($(original))
+      }
+      self.$options.append(option)
+    }
+
+    this.topOffset = function() {
+      return this.$selected.prevAll().length * -this.$selected.outerHeight() - 1
+    }
+
+    this.init()
+
+  }
+
+  $('select').each(function(){
+    new FauxSelect(this)
+  })
+
+  $('html').toggleClass('is-mobile', $.browser.mobile)
+
+  function spots() {
+    var date = new Date;
+    var day = isoDay(date);
+    var hour = date.getHours();
+    var spotMultiplier = day - 2 + (hour / 24);
+    var minSpotSize = 10;
+    var maxSpotSize = minSpotSize + spotMultiplier * 6;
+    var spotCount = Math.floor(spotMultiplier * 10);
+    var spots = [];
+    if (day > 4) {
+      spots.push(spot(50));
+      spots.push(spot(50));
+    };
+    for (var i=0; i < spotCount; i++) {
+      spots.push(randomSpot(minSpotSize, maxSpotSize));
+    };
+    return spots;
+  }
+
+  function spot(size) {
+    var $spot = $('<div class="spot">');
+    $spot.css({
+      height: size,
+      width: size,
+      marginLeft: -size / 2,
+      marginTop: -size / 2,
+      top: Math.random() * 100 + '%',
+      left: Math.random() * 100 + '%',
+      borderRadius: size
+    });
+    return $spot;
+  }
+
+  function randomSpot(min, max) {
+    return spot(Math.max(min, Math.floor(Math.random() * max)))
+  }
+
+  function formatNavigation() {
+    $('nav.main > ul > li > a').each(function(){
+      var letters = $.trim($(this).text()).split('');
+      var html = $.map(letters, function(letter){
+        return '<span class="' + letter + '">' + letter + '</span>'
+      });
+      $(this).html(html);
+    })
+  }
+
+  function fixNavigation() {
+    if (location.pathname.match('/collections')) {
+      $('.navigation-store').addClass('current')
+      var section = location.pathname.split('/').slice(0,3).join('/')
+      $('.navigation-store a[href^="'+section+'"]').addClass('current')
+    }
+  }
+
+  function isoDay(date) {
+    return (date.getDay() + 6) % 7
+  }
+
+  function fixFullStoryLinks() {
+    $('article .more').each(function(){
+      var $more = $(this);
+      var $content = $more.parents('article').find('.content')
+      var $last = $content.find('p:last-child')
+      if ($last.length) {
+        $last.append(' ')
+        $last.append($more)
+      } else {
+        $content.append($more.wrap('<p>'))
+      }
+    })
+  }
+
+  function fixDoubleReturns() {
+    $('.blog-stories .content p').each(function(){
+      if ($.trim($(this).text()) == '') {
+        $(this).next().css({
+          textIndent: 0
+        })
+      };
+    })
+  }
+
+  function watchSocialButtons() {
+    $('.social-buttons').on('click', '.social:not(.share)', function(){
+      var $el = $(this);
+      $el.addClass('active');
+      setTimeout(function(){
+        $el.removeClass('active');
+      }, 200)
+    })
+
+    ZeroClipboard.setDefaults({
+      moviePath: '{{ 'ZeroClipboard.swf' | asset_url }}',
+      allowScriptAccess: "always",
+      trustedDomains: location.hostname
+    });
+
+    $('.social.link').each(function(){
+      var clip = new ZeroClipboard(this)
+
+      clip.on('load', function(client){
+        client.on('complete', function(client, args){
+          $(this).text('copied!');
+        })
+      })
+      clip.on( 'mouseover', function ( client, args ) {
+        $(this).parent('.social-buttons').css('visibility', 'visible');
+        $(this).children('label').css('visibility', 'visible');
+      })
+      clip.on( 'mouseout', function ( client, args ) {
+        $(this).parent('.social-buttons').css('visibility', '');
+         $(this).children('label').css('visibility', '');
+      })
+    })
+
+    $(window).on('hashchange', function(){
+      if (window.location.hash == "#subscribe") {
+        $.fancybox.open($('#mc_embed_signup').html(), {
+          padding: 27,
+          margin: 85,
+          afterShow: function() {
+            if($('.fancybox-frame').length == 0){
+              this.wrap.after('<div class="fancybox-frame">');
+            }
+            $('.fancybox-frame').find('.fancybox-nav, .fancybox-close').remove();
+            $('.fancybox-nav, .fancybox-close').appendTo($('.fancybox-frame'));
+          },
+          afterClose: function() {
+            window.location.hash = ''
+          },
+          openEffect: 'none',
+          closeEffect: 'none',
+          nextEffect: 'none',
+          prevEffect: 'none'
+        });
+      };
+    }).trigger('hashchange')
+  }
+
+})
+
+$.fn.extend({
+
+  addContentClass: function() {
+    var els = $(this)
+    els.each(function(){
+      var el = $(this)
+      el.toggleClass('has-content', el.val() != '')
+    })
+    return els
+  },
+
+  offerCartButton: function() {
+    var $form = $(this)
+    if ($form.find('.checkout-popup').length) {
+      $form.find('.checkout-popup').showForAwhile()
+    } else {
+      var $button = $('<div class="checkout-popup"><a href="/cart" class="checkout-button"><div>Check Out Now</div></a><a class="close"><span></span></a></div>')
+      $(this).append($button)
+      $button.showForAwhile()
+    }
+  },
+
+  updateCartQuantity: function() {
+    var $form = $(this)
+    var qty = parseInt($form.find('#quantity').val())
+    $('.cart-quantity').each(function(){
+      $(this).text(parseInt($(this).text()) + qty)
+    })
+  },
+
+  showForAwhile: function() {
+    var el = $(this)
+    el.stop()
+    el.css({
+      marginBottom: 0
+    })
+    el.find('.checkout-button').fitText(1.2)
+
+    $('body').one('click', function(){
+      el.stop().animate({
+        marginBottom: - el.outerHeight()
+      }, 300, function(){
+        el.remove()
+      })
+    })
+
+    return el
+  },
+
+  stretchImageLink: function() {
+    var $link = $(this).parent('a');
+    if ($link.length) {
+      $link.css({
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        zIndex: -1
+      })
+    }
+  }
+
+})

@@ -1,0 +1,82 @@
+<div id="cart">
+  
+  {% if cart.item_count == 0 %}
+    <!-- Begin empty cart -->
+    <div class="row">
+      <div class="span12 expanded-message">
+        <br>
+        <br>
+        <h2 class="tc">Your cart is empty!</h2>
+      </div>
+    </div>
+  
+  {% else %}
+    <!-- Begin cart -->
+    <form action="/cart" method="post" id="cartform">
+      <table>
+        <thead>
+          <tr>
+            <!-- <th class="image">&nbsp;</th> -->
+            <th class="item">Item</th>
+            <th class="price">Price</th>
+            <th class="qty">Quantity</th>
+            <th class="line_price">Total</th>
+            <!-- <th class="remove">&nbsp;</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cart.items %}
+          <tr>
+            <td class="item">
+              <a href="{{item.product.url }}">
+                {{ item.product.title }}
+                {% if item.product.variants.size > 1 %}
+                <span class="variant_title">{{ item.variant.title }}</span>
+                {% endif %}
+              </a>
+            </td>
+            <td class="price">{{ item.price | money }}</td>
+            <td class="qty">
+              <input type="text" size="4" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" onfocus="this.select();" class="tc item-quantity" placeholder="?" />
+            </td>
+            <td class="line_price">{{ item.line_price | money }}</td>
+          </tr>
+          {% endfor %}
+          <tr>
+            <td></td>
+            <td></td>
+            <td class="qty">
+              <input type="submit" id="update-cart" class="btn" name="update" value="Update" />
+            </td>
+            <td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="checkout-special">
+        <label for="note">Special instructions:</label>
+        <textarea id="note" name="note" rows="10" cols="50" placeholder="Gift receipt? Birthday Greeting?">{{ cart.note }}</textarea>
+      </div>
+
+      <div class="cart-total">Total: {{ cart.total_price | money }}</div>
+
+      <div class="cart-buttons">
+        <input type="submit" id="checkout" class="btn" name="checkout" value="Checkout" />
+        <a class="back" href="/collections/all">Back to Store</a>
+      </div>
+    
+      {% if additional_checkout_buttons %}        
+        <div class="extra-checkout-buttons">
+          {{ content_for_additional_checkout_buttons }}
+        </div>
+      {% endif %}
+
+    </form>
+  {% endif %}
+  
+  
+  <!-- End cart -->
+  
+</div> 
+
+{% include 'cart-link' %}

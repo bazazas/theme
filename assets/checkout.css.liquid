@@ -1,0 +1,196 @@
+@import url(//fast.fonts.net/cssapi/80f7d73d-ae30-4653-acbd-54126e6200c0.css);
+
+body {
+  font-family: "AvantGardeGothicITCW01D 731075", sans-serif;
+  color: rgb(0, 76, 41);
+  background-image: -webkit-linear-gradient(left, rgb(0, 255, 55), rgb(252, 242, 57)); /* For Chrome and Safari */
+  background-image:    -moz-linear-gradient(left, rgb(0, 255, 55), rgb(252, 242, 57)); /* For old Fx (3.6 to 15) */
+  background-image:     -ms-linear-gradient(left, rgb(0, 255, 55), rgb(252, 242, 57)); /* For pre-releases of IE 10*/
+  background-image:      -o-linear-gradient(left, rgb(0, 255, 55), rgb(252, 242, 57)); /* For old Opera (11.1 to 12.0) */ 
+  background-image:         linear-gradient(left, rgb(0, 255, 55), rgb(252, 242, 57)); /* Standard syntax; must be last */
+}
+
+#main,
+#header,
+#buttons,
+#footer,
+#overview,
+#products,
+#email,
+#addresses,
+.group,
+#thumbs div,
+.thumblist-image .images,
+.field-with-errors,
+#email {
+  border: none;
+  background: none;
+}
+
+h1, h2, h3, h4, h5, h6,
+#thumbs span,
+#cost, #order-num, #steps,
+#footer,
+#buttons,
+a, strong, label, input,
+#overview .hint {
+  font-family: "AvantGardeGothicITCW01D 731075", sans-serif;
+  font-weight: normal !important;
+  font-style: normal;
+  color: rgb(0, 76, 41) !important;
+  text-shadow: none !important;
+}
+
+a:hover {
+  color: rgb(255, 242, 0)
+}
+
+.thumblist-content {
+  margin-left: 80px;
+  float: none;
+}
+
+.thumblist-image {
+  width: 60px;
+  text-align: center;
+}
+
+.thumblist-image .images {
+  padding: 0
+}
+
+.item-inventory-message {
+  margin-top: 0;
+}
+
+#buttons {
+  text-align: center;
+}
+
+#header h1 {
+  display: block;
+  margin: 17px auto;
+  text-indent: -9999px;
+  overflow: hidden;
+  width: 120px;
+  height: 407px;
+  background: transparent url({{ 'headline.png' | asset_url }}) no-repeat scroll center top;
+  position: fixed;
+  top: 20px;
+  left: 10px;
+  padding: 0;
+}
+
+#container,
+#info-bar {
+  padding-left: 130px;
+}
+
+.group h3, .pgroup h3 {
+  border: none;
+}
+
+.form td {
+  padding: 5px 0;
+}
+
+.field-with-errors .error-message {
+  font-weight: normal;
+}
+
+.field-with-errors {
+  padding: 0;
+}
+
+#overview .hint:before {
+  content: "."
+}
+
+.group {
+  padding: 0
+}
+
+#cost {
+  font-size: 32pt;
+  margin-bottom: 0;
+}
+
+#wallet-highlight {
+  background: transparent
+}
+
+#email {
+  padding: 0;
+}
+
+#overview h2 {
+  font-size: 17px;
+}
+
+#thumbs h3,
+#thumbs .plist-line-price {
+  font-size: 13px !important;
+  line-height: 16px;
+  padding-right: 10px;
+}
+
+#wallet {
+  width: 200px;
+  margin-left: 531px;
+}
+
+#products {
+  width: 520px;
+}
+
+#buttons {
+  margin: 50px auto 30px;
+  width: 320px !important;
+  position: relative;
+  text-align: center;
+  padding: 0;
+}
+  
+#buttons input {
+  font-family: "AvantGardeGothicITCW01D 731075", sans-serif;
+  color: rgb(0, 76, 41);
+  font-size: 22pt;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-transform: lowercase;
+}
+  
+#buttons small {
+  position: absolute;
+  left: 100%;
+  bottom: 7px;
+  width: 300px;
+  text-transform: lowercase;
+  text-align: left;
+}
+
+#buttons small,
+#buttons small a {
+  font-family: "CenturySchoolbookW01-Ro", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+  font-size: 12pt;
+}
+
+#purchase-form #buttons {
+  width: 350px !important;
+}
+
+#purchase-form #buttons small {
+  bottom: 12px;
+}
+
+.step2:after {
+  content: '.';
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(255, 242, 0);
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}

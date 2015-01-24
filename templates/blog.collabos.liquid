@@ -1,0 +1,30 @@
+  {% paginate blog.articles by 10 %}
+<div class="blog{% if template == 'blog.collabos' %} collabos{% endif %}">
+  <div class="breadcrumb">
+        {% include 'pagination' %}
+  </div>
+  
+  {% if current_tags %}
+    <div class="tagged-with">
+      Filed under {{ current_tags.first }}
+      <!-- {{  blog.id  }} -->
+    </div>
+  {% endif %}
+
+
+  
+  <div class="articles">
+    
+    {% include 'article' with blog.articles %}
+    
+  </div>
+  
+  <div class="pagination">
+    {% include 'pagination' %}
+  </div>
+  
+  {% endpaginate %}
+  
+</div>
+
+{% include 'cart-link' %}

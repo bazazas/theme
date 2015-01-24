@@ -1,0 +1,22 @@
+{% assign product = sold-out %}
+{% assign coming_soon = false %}
+{% assign restocking = false %}
+
+{% for tag in product.tags %}
+  {% if tag == 'coming-soon' %}
+    {% assign coming_soon = true %}
+  {% endif %}
+  {% if tag == 'restocking' %}
+    {% assign restocking = true %}
+  {% endif %}
+{% endfor %}
+
+<span class="sold-out">
+  {% if coming_soon %}
+    Coming Soon
+  {% elsif restocking %}
+    Temporarily Out of Stock
+  {% else %}
+    Sold Out
+  {% endif %}
+</span>

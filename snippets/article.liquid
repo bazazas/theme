@@ -1,0 +1,34 @@
+<article class="post{% if template == 'blog.collabos' %} post-excerpt{% endif %}">
+  
+  <h1>
+    <a href="{{ article.url }}">{{ article.title }}</a>
+  </h1>
+  
+  <div class="content{% if template == 'blog.collabos' %} excerpt{% endif %}">
+    {% if template == 'blog' %}
+      {{ article.excerpt_or_content }} 
+    {% elsif template == 'blog.collabos' %}
+    	<a href="{{ article.url }}">
+    	{{ article.excerpt_or_content }}
+    	 {% include 'share-links' with article %}
+    	</a>
+    {% else %}
+      {{ article.content }}
+    {% endif %}
+  </div>
+  
+  {% if template == 'blog' %}
+    {% if article.excerpt == article.excerpt_or_content %}
+      <a href="{{ article.url }}" class="more">full story &ndash;&rsaquo;</a>
+    {% endif %}
+  {% endif %}
+  
+  <div class="metadata">
+    <span class="date">{{ article.published_at | date: "%B %d, %Y" }}</span>
+    {% include 'article-tags' with article %}
+  </div>
+  {% if template != 'blog.collabos' %}
+  	{% include 'share-links' with article %}
+  {% endif %}	
+  
+</article>

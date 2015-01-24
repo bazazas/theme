@@ -1,0 +1,80 @@
+{% capture template_name %}{{ template | split: '.' | join: '-' }}{% endcapture %}
+<!doctype html>
+<html class="
+  template-{{ template_name }} 
+  {% if blog %}blog-{{ blog.handle }}{% endif %}
+  {% if template_name == 'index' %}blog-news{% endif %}
+" lang="en">
+<head>
+
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>{% if template == "404" %}Page not found{% elsif template == 'index' %}{{ shop.name }} - {{ page_title }}{% else %}{{ page_title }} - {{ shop.name }}{% endif %}</title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description }}" />
+  {% endif %}
+
+  <meta name="viewport" content="width=1200" />
+  
+  <link rel="canonical" href="{{ canonical_url }}" /> 
+
+  {% include 'fb-open-graph-tags' %}
+  {{ 'slick.css' | asset_url | stylesheet_tag }}	
+  <link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/80f7d73d-ae30-4653-acbd-54126e6200c0.css"/>
+  {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
+  
+  {{ 'html5shiv.js' | asset_url | script_tag }}
+
+  {{ content_for_header }}
+  
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' | script_tag }}
+  {{ 'detectmobilebrowser.js' | asset_url | script_tag }}
+  {{ 'jquery-migrate-1.2.0.min.js' | asset_url | script_tag }}
+  {{ 'jquery.backstretch.min.js' | asset_url | script_tag }}
+  {{ 'masonry.min.js' | asset_url | script_tag }}
+  {{ 'imagesloaded.min.js' | asset_url | script_tag }}
+  {{ 'jquery.fancybox.js' | asset_url | script_tag }}
+  {{ 'jquery.autogrow-textarea.js' | asset_url | script_tag }}
+  {{ 'jquery.form.min.js' | asset_url | script_tag }}
+  {{ 'jquery.fittext.js' | asset_url | script_tag }}
+  {{ 'ZeroClipboard.min.js' | asset_url | script_tag }}
+  {{ 'slick.min.js' | asset_url | script_tag }}
+  {{ 'scripts.js' | asset_url | script_tag }}
+  
+</head>
+
+<body>
+  
+  <div class="wrapper">
+    
+    <nav class="main">
+      <a class="logo" href="/">{{ shop.name }}</a>
+      
+      {% include 'navigation' %}
+    </nav>
+    
+    <section id="content">
+      {{ content_for_layout }}
+    </section>
+    
+    <div style="clear: both;"></div>
+    
+    {% include 'social-links' %}
+    
+  </div>
+  
+  <div class="preload smoosh"></div>
+  
+  <script type="text/javascript" charset="utf-8">
+    var addthis_config = {
+      ui_offset_left: 30,
+      ui_hover_direction: -1
+    }
+  </script>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f78ceaf115fc4f3"></script>
+  
+</body>
+</html>

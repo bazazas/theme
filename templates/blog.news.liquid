@@ -1,0 +1,13 @@
+<div class="blog">
+    
+    <div class="articles">
+      
+      {% assign current_article = blog.articles.first %}
+      
+      {% include 'article-news' with current_article %}
+      
+    </div>
+    
+    {% include 'pagination.news' %}
+  
+</div>

@@ -1,0 +1,12 @@
+{% assign current_article = blogs.news.articles.first %}
+
+{% include 'article-news' with current_article %}
+
+{% if blogs.news.articles.size > 1 %}
+  <div class="pagination">
+    {% for article in blogs.news.articles %}
+      <a href="{{ article.url }}" 
+          {% if article.id == current_article.id %}class="current"{% endif %}>{{ forloop.rindex }}</a>
+    {% endfor %}
+  </div>
+{% endif %}

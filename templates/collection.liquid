@@ -1,0 +1,83 @@
+<div id="collection">
+
+  {% paginate collection.products by settings.pagination_limit %}
+
+    <!-- Begin breadcrumb -->
+    <div class="breadcrumb">
+      <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{{ shop.url }}/collections/all" title="{{ shop.name | escape }}" itemprop="url"><span itemprop="title">Collections</span></a></span>
+      <span class="arrow-space">&#62;</span>
+      <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        {% if collection %}
+          <a href="{{ collection.url }}" title="{{ collection.title | escape }}">{{ collection.title }}</a>
+        {% else %}
+          <a href="/collections/all" title="All Products">Products</a>
+        {% endif %}
+      </span>
+
+    </div>
+
+    <!-- <h1 class="collection-title">{{ collection.title }}</h1> -->
+
+    <!-- Begin sort collection -->
+    <!-- {% if settings.collection_tags %}
+      {% capture col_url%}{% if collection.url.size == 0 %}/collections/all{%else%}{{collection.url}}{%endif%}{%endcapture%}
+      {% if collection.all_tags.size > 0 %}
+      <div class="browse-tags">
+        <label>Browse:</label>
+        <select name="collection_tags" id="collection_tags" class="loc_on_change">
+          <option value="{{ col_url }}">All items</option>
+          {% for tag in collection.all_tags %}
+            <option value="{{col_url}}/{{ tag | handle }}"{% if current_tags contains tag %} selected="selected"{%endif%}>{{ tag }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      {% endif %}
+    {% endif %} -->
+
+    <!-- Begin collection description -->
+    <!-- {% if collection.description != "" %}
+      {{ collection.description }}
+    {% endif %} -->
+    <div id="pagination-top">
+	  	{% include 'pagination' %}
+    </div>
+    <!-- Begin no products -->
+    {% if collection.products.size == 0 %}
+    	{% unless collection.title == "Frontpage" %}
+      <p>No products found</p>
+        {% endunless %}
+    {% endif %}
+
+    {% if settings.use-orbit and collection.title == 'Frontpage' %}
+    	<div id="orbit-container">
+    		<div class="orbit">
+          {% for i in (1..30) %}
+            {% assign use_key = i | prepend: 'use-orbit-' %}
+            {% assign link_key = i | prepend: 'orbit-' | append: '-link' %}
+            {% assign id_name = i | prepend: 'slide' %}
+            {% assign image_name = id_name | append: '.jpg' %}
+            {% if settings[use_key] %}
+              <div id="{{ id_name }}" {{ use_key }} {{ image_name }} {{ link_key }}>
+                {% unless settings[link_key] == blank %}<a href="{{ settings[link_key] }}">{% endunless %}
+                    <img src="{{ image_name | asset_url }}" />
+                {% unless settings[link_key] == blank %}</a>{% endunless %}
+              </div>
+            {% endif %}
+          {% endfor %}
+    		</div>
+  		</div>
+  	{% endif %}
+
+    <div class="products">
+      {% for product in collection.products limit: settings.pagination_limit %}
+        {% include 'product-loop' with collection.handle %}
+      {% endfor %}
+    </div>
+
+    {% include 'pagination' %}
+
+  {% endpaginate %}
+
+</div>
+
+{% include 'cart-link' %}

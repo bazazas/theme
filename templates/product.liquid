@@ -1,0 +1,117 @@
+<div id="product" class="{{ product.handle }}">
+      
+  <!-- Begin breadcrumb -->
+  <div class="breadcrumb">
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{{ shop.url }}/collections/all" title="{{ shop.name | escape }}" itemprop="url"><span itemprop="title">Collections</span></a></span> 
+    <span class="arrow-space">&#62;</span>
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      {% if collection %}
+        <a href="{{ collection.url }}" title="{{ collection.title | escape }}">{{ collection.title }}</a>
+      {% else %}
+        <a href="/collections/all" title="All Products">Products</a>
+      {% endif %}
+    </span>
+  </div>
+  <!-- End breadcrumb -->
+ 
+
+  <!-- Begin product photos -->
+  <div class="images">
+    {% for image in product.images %}
+    <div class="image">
+      <a href="{{ image | product_img_url: '2048x2048' }}" class="fancybox" rel="product-gallery">
+        <img src="{{ image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}">
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Begin description -->
+  <div class="details">
+        
+    <header>
+      
+      <h1 class="title">{{ product.title }}</h1>
+      
+      {% if subtitle != description %}
+        <div class="subtitle">{{ subtitle }}</div>
+      {% endif %}
+      
+      {% assign hide_default_title = false %}
+      {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+        {% assign hide_default_title = true %}
+      {% endif %}
+      
+      {% assign various_prices = false %}
+      {% assign base_price = product.variants.first.price %}
+      {% for variant in product.variants %}
+        {% if variant.price != base_price %}
+          {% assign various_prices = true %}
+        {% endif %}
+      {% endfor %}
+      
+    </header>
+    
+    <div class="description">
+      {{ product.description }}
+    </div>
+    
+    <div class="price" id="price-preview">
+      {% unless various_prices %}
+        {{ product.price_min | money }}{% if product.price_min < product.compare_at_price_min %} <del>{{ product.compare_at_price_min | money }}</del>{% endif %}
+      {% endunless %}
+    </div>
+    
+    {% if product.available %}
+    
+      <form id="add-item-form" action="/cart/add" method="post" class="variants">
+    
+        <!-- Begin product options -->
+        <div class="product-options">
+        
+          <div class="product-option variants"{% if hide_default_title %} style="display:none"{% endif %}>
+            <label>{{ product.options | join: " & " }}</label>
+            <select id="product-select" name="id">
+              {% for variant in product.variants %}
+              <option value="{{ variant.id }}">
+                {{ variant.title }}
+                {% if various_prices %}
+                  &ndash; {{ variant.price | money }}
+                {% endif %}
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+        
+          <div class="product-option quantity">
+            <label>Quantity</label>
+            <input id="quantity" type="text" pattern="[0-9]*" name="quantity" value="1" class="tc item-quantity">
+          </div>
+        
+        </div>
+        <!-- End product options -->
+      
+        <div class="purchase">
+          <input type="submit" id="add-to-cart" class="btn addtocart" name="add" value="Add to cart">
+        </div>
+      
+      </form>
+      
+    {% else %}
+    
+      <div>
+        {% include "sold-out" with product %}
+      </div>
+      
+      <a href="mailto:mary@bazazas.com?subject=Re: {{ product.title }}" id="add-to-cart">EMAIL INQUIRY</a>
+      
+    {% endif %}
+
+    {% include 'share-links' with product %}
+
+  </div>
+  <!-- End description -->
+
+</div> 
+
+{% include 'cart-link' %}
