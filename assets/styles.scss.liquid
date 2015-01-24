@@ -293,22 +293,26 @@ h1 a {
 .page a[href^='mailto:'] {
   border-bottom: none;
 }
-.pagination{
+
+.pagination {
 	text-align: center;
 	width: 33%;
 	float: right;
+  clear: both;
 	padding-right: 30px;
+
+  header & {
+    margin-top: 40px;
+  }
 }
-.breadcrumb .pagination{
+
+.breadcrumb .pagination {
 	text-align: center;
 	width: auto;
 	margin: 0px auto;
 	margin-top: 14px;
 }
-#pagination-top{
-	font-size: 25px;
-	margin-top: 40px;
-}
+
 .pagination a {
   border-bottom: none;
 }
@@ -690,8 +694,9 @@ article.post {
 
 .products {
   width: 870px;
+  min-height: 50px;
   margin: 0 auto;
-  padding-top: 30px;
+  clear: both;
 }
 
 .products .product.loading {
@@ -741,24 +746,23 @@ article.post {
 }
 
 #product {
-  padding-top: 100px;
-
   .price {
     margin: 1em 0;
   }
-}
 
-#product .images,
-#product .details {
-  float: left;
-  width: 450px;
-  margin: 0 15px;
-  min-height: 10pt;
+  .images,
+  .details {
+    float: left;
+    width: 450px;
+    margin: 0 15px;
+    min-height: 10pt;
+    padding-top: 100px;
 
-  img {
-    max-width: 395px;
-    margin: 0 auto;
-    padding: 27px 0;
+    img {
+      max-width: 395px;
+      margin: 0 auto;
+      padding: 27px 0;
+    }
   }
 }
 
@@ -1063,9 +1067,6 @@ button.slick-prev::before{
 
   font-size: 12pt;
   line-height: 16pt;
-  position: absolute;
-  top: 20px;
-  left: 0;
   width: 450px;
   margin: 0 15px;
   text-transform: lowercase;
