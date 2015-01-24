@@ -1,19 +1,9 @@
 <div id="product" class="{{ product.handle }}">
 
   <header>
-    <div class="breadcrumb">
-      <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{{ shop.url }}/collections/all" title="{{ shop.name | escape }}" itemprop="url"><span itemprop="title">Collections</span></a></span>
-      <span class="arrow-space">&#62;</span>
-      <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-        {% if collection %}
-          <a href="{{ collection.url }}" title="{{ collection.title | escape }}">{{ collection.title }}</a>
-        {% else %}
-          <a href="/collections/all" title="All Products">Products</a>
-        {% endif %}
-      </span>
-    </div>
+    {% include 'breadcrumb' %}
   </header>
- 
+
   <!-- Begin product photos -->
   <div class="images">
     {% for image in product.images %}

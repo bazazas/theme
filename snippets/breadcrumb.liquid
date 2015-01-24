@@ -1,0 +1,23 @@
+<div class="breadcrumb">
+  <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+    <a href="{{ shop.url }}/collections/all" title="{{ shop.name | escape }}" itemprop="url">
+      <span itemprop="title">Store</span>
+    </a>
+  </span>
+  <span class="arrow-space">&#62;</span>
+  <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+    {% if collection %}
+      {% comment %}
+        Do Nothing
+      {% endcomment %}
+    {% elsif product %}
+      {% assign collection = product.collections | first %}
+      {% if collection.title == "all" %}
+        {% assign collection = product.collections[1] %}
+      {% endif %}
+    {% else %}
+      {% assign collection = collections.all %}
+    {% endif %}
+    <a href="{{ collection.url }}" title="{{ collection.title | escape }}">{{ collection.title }}</a>
+  </span>
+</div>
