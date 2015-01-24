@@ -91,6 +91,14 @@ $brown:        rgb(121, 42, 15);
   letter-spacing: 2px;
 }
 
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 html {
   background-color: white;
 }
@@ -143,6 +151,11 @@ textarea {
 input {
   -webkit-appearance: none;
   border-radius: 0;
+}
+
+header,
+footer {
+  @include clearfix;
 }
 
 .wrapper {
@@ -276,7 +289,6 @@ nav.main {
 
 #content {
   width: 960px;
-/*   width: 870px;*/
   margin: 0 auto;
   padding: 20px 0 300px;
   text-align: center;
@@ -284,6 +296,10 @@ nav.main {
   line-height: 1.3em;
   letter-spacing: 1px;
   position: relative;
+
+  .template-index & {
+    padding-top: 30pt
+  }
 }
 
 h1 a {
@@ -420,34 +436,6 @@ article.post {
     text-transform: lowercase;
   }
 
-}
-
-.blog-news {
-  @include fixed-social-buttons;
-
-  body {
-    padding: 0;
-  }
-
-  #content {
-    height: 0;
-    margin: 0;
-    padding: 0;
-  }
-
-  article h1,
-  article .metadata {
-    display: none;
-  }
-
-  .pagination {
-    position: fixed;
-    left: 0;
-    bottom: 84px;
-    font-size: 24pt;
-    width: 100%;
-    text-align: center;
-  }
 }
 
 .blog-stories.template-blog {
@@ -819,11 +807,12 @@ article.post {
 	margin: auto;
 	display: inherit;
 }
+
 .orbit{
 	width: 870px;
 	margin: 0px auto;
-	padding-top: 60px;
 }
+
 button.slick-next, button.slick-next:focus{
 	right: 20px;
 	background-image: url({{ 'fancybox_sprite.png' | asset_url }});

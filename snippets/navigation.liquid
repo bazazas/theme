@@ -1,47 +1,44 @@
 <ul class="horizontal unstyled clearfix">
   {% for link in linklists.main-menu.links %}
-    
+
     {% assign link_active = false %}
+
     {% if link.active %}
       {% assign link_active = true %}
     {% endif %}
-    
+
+    {% if link.title == "Store" && page.handle == 'frontpage' %}
+      {% assign link_active = true %}
+    {% endif %}
+
     <li class="{% if link_active %}current{% endif %} navigation-{{ link.handle }}">
       <a href="{{ link.url }}">
         <span>{{ link.title }}</span>
       </a>
-      
+
       {% if link.title == 'Store' %}
         <ul class="subnav">
-          
+
           {% for collection in collections %}
-            {% if collection.title == 'all' %}
+            {% if collection.handle == 'all' %}
               <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
             {% endif %}
           {% endfor %}
-          
+
           {% for collection in collections %}
-            {% if collection.title != 'all' %}
-            	 {% if collection.title == 'Frontpage' %}
-            	 	 
-            	 {% else %}
+            {% if collection.handle != 'all' and collection.handle != 'frontpage' %}
               <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
-              	 {% endif %}
             {% endif %}
           {% endfor %}
-          
+
         </ul>
       {% endif %}
+
       {% if link.title == 'Projects' %}
-      
         <ul class="subnav">
-          
           {% for tag in blog.all_tags %}
-            <li  {% if current_tags contains tag %}class="current"{% endif %}>{{ tag | link_to_tag: tag }}</li>
+            <li {% if current_tags contains tag %}class="current"{% endif %}>{{ tag | link_to_tag: tag }}</li>
           {% endfor %}
-          
-     
-          
         </ul>
       {% endif %}
 
