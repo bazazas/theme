@@ -1,0 +1,13 @@
+{% assign product = share-links-product %}
+{% capture title %}{{ product.title }}{% endcapture %}
+{% capture url %}{{ shop.url }}{{ product.url }}{% endcapture %}
+
+<div class="social-buttons addthis_toolbox addthis_default_style"
+  addthis:url="{{ url }}"
+  addthis:title="{{ title }}">
+
+  <a class="addthis_button_compact social share plain-button">
+    <div>Share</div>
+  </a>
+
+</div>
