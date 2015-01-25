@@ -13,7 +13,7 @@
     {% include 'pagination' %}
   </header>
 
-  {% if settings.use-orbit && collection.handle == settings.frontpage_collection %}
+  {% if settings.use-orbit and collection.handle == settings.frontpage_collection %}
     {% include 'slideshow' %}
   {% endif %}
 
