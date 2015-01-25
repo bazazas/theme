@@ -292,7 +292,7 @@ nav.main {
 
   ul ul.subnav a {
     @include schoolbook;
-    font-size: 9pt;
+    font-size: 10pt;
     line-height: 12pt;
     letter-spacing: 2px;
   }
@@ -301,21 +301,25 @@ nav.main {
     text-decoration: underline;
   }
 
+  ul ul.subnav li a.highlight {
+    @include avant-garde;
+    font-size: 9pt;
+    margin-top: 2pt;
+    margin-bottom: -1pt;
+  }
+
   ul ul.subnav li a.current,
-  ul ul.subnav li.current a {
+  ul ul.subnav li.current a,
+  ul ul.subnav li.current a.highlight {
     @include schoolbook;
     font-size: 12pt;
-    line-height: 11pt;
-    margin: 0 0 4px;
+    line-height: 14pt;
+    margin: 0 0 1px;
     text-decoration: underline;
 
     &:hover {
       text-decoration: none;
     }
-  }
-
-  ul ul.subnav li a.highlight {
-    @include avant-garde;
   }
 
   .is-mobile & {
