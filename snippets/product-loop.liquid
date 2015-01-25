@@ -1,5 +1,9 @@
 {% capture collection_handle %}{{ product-loop | handleize }}{% endcapture %}
-{% capture url %}{% if collection_handle != "" %}/collections/{{ product-loop }}{{ product.url }}{% else %}{{ product.url }}{% endif %}{% endcapture %}
+{% if template == "index" %}
+  {% capture url %}{{ product.url }}{% endcapture %}
+{% else %}
+  {% capture url %}{% if collection_handle != "" %}/collections/{{ product-loop }}{{ product.url }}{% else %}{{ product.url }}{% endif %}{% endcapture %}
+{% endif %}
 <a href="{{ url }}">
 
   <div class="product">

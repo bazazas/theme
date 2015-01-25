@@ -13,19 +13,21 @@
     {% include 'pagination' %}
   </header>
 
-  {% if settings.use-orbit and collection.handle == 'frontpage' %}
+  {% if settings.use-orbit && collection.handle == settings.frontpage_collection %}
     {% include 'slideshow' %}
   {% endif %}
 
-  <div class="products">
-    {% if collection.products.size == 0 and collection.handle != "frontpage"%}
-      <p>No products found</p>
-    {% endif %}
+  {% if collection != blank %}
+    <div class="products">
+      {% if collection.products.size == 0 and collection.handle != "frontpage"%}
+        <p>No products found</p>
+      {% endif %}
 
-    {% for product in collection.products limit: settings.pagination_limit %}
-      {% include 'product-loop' with collection.handle %}
-    {% endfor %}
-  </div>
+      {% for product in collection.products limit: settings.pagination_limit %}
+        {% include 'product-loop' with collection.handle %}
+      {% endfor %}
+    </div>
+  {% endif %}
 
   <footer>
     {% include 'pagination' %}

@@ -1,9 +1,19 @@
 {% assign item = collection-nav-item %}
 {% assign special = "*" %}
 
+{% capture classes %}
+  {% if item.title.first == special %}
+    highlight
+  {% endif %}
+
+  {% if template == "index" and item.handle == settings.frontpage_collection %}
+    current
+  {% endif %}
+{% endcapture %}
+
 <li>
   <a href="{{ item.url }}"
-     {% if item.title.first == special %}class="highlight"{% endif %}>
+     class="{{ classes }}">
     {% include 'collection-title' with item %}
   </a>
 </li>
