@@ -21,13 +21,13 @@
 
           {% for collection in collections %}
             {% if collection.handle == 'all' %}
-              <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+              {% include 'collection-nav-item' with collection %}
             {% endif %}
           {% endfor %}
 
           {% for collection in collections %}
             {% if collection.handle != 'all' and collection.handle != 'frontpage' %}
-              <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+              {% include 'collection-nav-item' with collection %}
             {% endif %}
           {% endfor %}
 

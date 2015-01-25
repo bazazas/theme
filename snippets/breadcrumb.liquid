@@ -12,12 +12,12 @@
       {% endcomment %}
     {% elsif product %}
       {% assign collection = product.collections | first %}
-      {% if collection.title == "all" %}
+      {% if collection.handle == "all" %}
         {% assign collection = product.collections[1] %}
       {% endif %}
     {% else %}
       {% assign collection = collections.all %}
     {% endif %}
-    <a href="{{ collection.url }}" title="{{ collection.title | escape }}">{{ collection.title }}</a>
+    <a href="{{ collection.url }}" title="{{ collection.title | escape }}">{% include 'collection-title' with collection %}</a>
   </span>
 </div>

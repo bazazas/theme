@@ -1,0 +1,10 @@
+{% assign item = collection-title %}
+{% assign name = item.title %}
+{% assign initial = name | first %}
+{% assign special = "*" %}
+
+{% if initial == special %}
+  {% assign name = name | replace_first: special %}
+{% endif %}
+
+{{ name }}

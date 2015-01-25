@@ -1,0 +1,9 @@
+{% assign item = collection-nav-item %}
+{% assign special = "*" %}
+
+<li>
+  <a href="{{ item.url }}"
+     {% if item.title.first == special %}class="highlight"{% endif %}>
+    {% include 'collection-title' with item %}
+  </a>
+</li>
