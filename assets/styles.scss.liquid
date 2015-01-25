@@ -259,7 +259,7 @@ nav.main {
 
   ul ul.subnav a {
     @include schoolbook;
-    font-size: 9pt;
+    font-size: 10pt;
     line-height: 12pt;
     letter-spacing: 2px;
   }
@@ -756,6 +756,10 @@ article.post {
       padding: 27px 0;
     }
   }
+
+  .images {
+    padding-top: 50px;
+  }
 }
 
 #product h1 {
@@ -765,8 +769,9 @@ article.post {
 #product .description,
 #product .details {
   @include schoolbook;
-  font-size: 16pt;
-  line-height: 20pt;
+  font-size: 12pt;
+  line-height: 16pt;
+  letter-spacing: 2px;
 }
 
 #product .description h1 {
@@ -779,7 +784,9 @@ article.post {
 #product .description h5,
 #product .description h6 {
   @include subtitle;
-  margin: 0.3em 50px 1.4em;
+  font-size: 12pt;
+  line-height: 16pt;
+  margin: 0 0 1em;
 }
 
 #product .images {
@@ -787,19 +794,20 @@ article.post {
 }
 
 #product .product-option {
-  display: inline-block;
-  margin: 0 20px;
+  display: block;
+  margin: 0 20px 1em;
 }
 
 #product .product-options label {
   font-size: 12pt;
-  margin-right: 10px;
+  display: block;
 }
 
 #product #quantity {
   @include form-input;
   @include schoolbook;
-  font-size: 16pt;
+  font-size: 12pt;
+  line-height: 16pt;
   width: 50px;
 }
 
@@ -849,6 +857,7 @@ button.slick-next::before{
 button.slick-prev::before{
 	content: "";
 }
+
 #add-to-cart {
   @include avant-garde;
   font-weight: normal;
@@ -859,7 +868,7 @@ button.slick-prev::before{
   text-transform: uppercase;
   padding: 10px 20px;
   letter-spacing: 3px;
-  margin: 30px 0;
+  margin: 0 0 30px;
   cursor: pointer;
   display: inline-block;
   line-height: 32pt;
@@ -1584,27 +1593,25 @@ button.slick-prev::before{
 }
 
 .share {
-  width: 225px;
-  height: 88px;
-  padding: 0;
+  @include avant-garde;
+  font-weight: normal;
+  font-size: 24pt;
+  border: 1px solid rgb(0, 76, 41);
+  background-color: rgb(0, 255, 55);
+  color: rgb(0, 76, 41);
+  text-transform: uppercase;
+  padding: 10px 20px;
+  letter-spacing: 3px;
+  margin: 0 0 30px;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 32pt;
 
-  &, &:active {
-    background-image: url({{ 'share.png' | asset_url }});
-
-    @include on-devices {
-      background-image: url({{ 'share@2x.png' | asset_url }});
-      background-size: 225px 175px;
-    }
-  }
-
-
+  &:active,
   &:hover {
-    background-position: center -88px;
-  }
-
-  div {
-    height: 88px;
-    width: 225px;
+    border-color: rgb(121, 5, 9);
+    color: rgb(121, 5, 9);
+    background-color: rgb(255, 242, 0);
   }
 }
 
@@ -1622,15 +1629,21 @@ button.slick-prev::before{
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
      only screen and (min--moz-device-pixel-ratio: 1.5),
      only screen and (min-device-pixel-ratio: 1.5){
+
 		.template-blog-collabos .excerpt .social-buttons{
 			visibility: visible;
 			background-size: auto;
 
 		}
+
 		.template-blog-collabos .excerpt .social-buttons{
 			background-size: auto;
 		}
-		.template-blog-collabos .link, .template-blog-collabos .share, .template-blog-collabos .email, .template-blog-collabos .twitter{
+
+		.template-blog-collabos .link,
+    .template-blog-collabos .share,
+    .template-blog-collabos .email,
+    .template-blog-collabos .twitter {
 			background-size: auto;
 			background-image: url({{ 'sprite.png' | asset_url }});
 		}
