@@ -9,8 +9,17 @@
     {% for image in product.images %}
     <div class="image">
       <a href="{{ image | product_img_url: '2048x2048' }}" class="fancybox" rel="product-gallery">
-        <img src="{{ image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}">
+        <img src="{{ image | product_img_url: 'grande' }}" alt="{{ image.alt | escape }}">
       </a>
+
+      {% comment %}
+        Image alt defaults to the product title, so see if it's been changed first to see if we should display it.
+      {% endcomment %}
+      {% if image.alt != product.title %}
+      <div class="caption">
+        <p>{{ image.alt | replace: '\n\n', '</p><p>' | replace: '\n', '<br>' }}</p>
+      </div>
+      {% endif %}
     </div>
     {% endfor %}
   </div>
