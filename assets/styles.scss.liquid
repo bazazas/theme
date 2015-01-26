@@ -869,7 +869,26 @@ article.post {
 
 /*--Collections Orbit--*/
 #orbit-container{
-	width: 100%;
+  width: 870px;
+  margin: 0px auto;
+  position: relative;
+
+  .overflow-cheat {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: white;
+    z-index: 1000;
+
+    &.left {
+      left: -1px;
+    }
+
+    &.right {
+      right: -1px;
+    }
+  }
 }
 #content #orbit-container img{
 	margin: auto;
