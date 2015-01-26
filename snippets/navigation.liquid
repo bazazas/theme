@@ -7,7 +7,7 @@
       {% assign link_active = true %}
     {% endif %}
 
-    {% if link.title == "Store" && template == 'index' %}
+    {% if link.title == "Store" and template == 'index' %}
       {% assign link_active = true %}
     {% endif %}
 
@@ -37,7 +37,17 @@
       {% if link.title == 'Projects' %}
         <ul class="subnav">
           {% for tag in blog.all_tags %}
-            <li {% if current_tags contains tag %}class="current"{% endif %}>{{ tag | link_to_tag: tag }}</li>
+            {% assign tag_name = tag | downcase %}
+
+            {% capture classes %}
+              {% for t in current_tags %}
+                {% assign tname = t | downcase %}
+                {% if tname == tag_name %}
+                  current
+                {% endif %}
+              {% endfor %}
+            {% endcapture %}
+            <li class="{{ classes }}">{{ tag | link_to_tag: tag }}</li>
           {% endfor %}
         </ul>
       {% endif %}
