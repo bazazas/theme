@@ -306,6 +306,7 @@ nav.main {
     font-size: 9pt;
     margin-top: 2pt;
     margin-bottom: -1pt;
+    letter-spacing: 1px;
   }
 
   ul ul.subnav li a.current,
@@ -815,34 +816,34 @@ article.post {
     margin-left: 30px;
   }
 
-  h1 {
+  .title {
     @include medium;
     text-transform: none;
     margin-bottom: 0.8em;
+    letter-spacing: 2px;
   }
-}
 
-#product .description,
-#product .details {
-  @include schoolbook;
-  font-size: 12pt;
-  line-height: 16pt;
-  letter-spacing: 2px;
-}
+  .description,
+  .price,
+  .product-options {
+    @include schoolbook;
+    font-size: 12pt;
+    line-height: 16pt;
+    letter-spacing: 1px;
+  }
 
-#product .description h1 {
-  display: none;
-}
+  .description {
+    h1 {
+      display: none;
+    }
 
-#product .description h2,
-#product .description h3,
-#product .description h4,
-#product .description h5,
-#product .description h6 {
-  @include subtitle;
-  font-size: 12pt;
-  line-height: 16pt;
-  margin: 0 0 1em;
+    h2, h3, h4, h5, h6 {
+      @include subtitle;
+      font-size: 12pt;
+      line-height: 16pt;
+      margin: 0 0 1em;
+    }
+  }
 }
 
 #product .images {
