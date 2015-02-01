@@ -89,8 +89,12 @@
         </div>
         <!-- End product options -->
 
-        <div class="purchase">
-          <input type="submit" id="add-to-cart" class="btn addtocart" name="add" value="Add to cart">
+        <div class="product-buttons">
+          <div class="purchase">
+            <input type="submit" id="add-to-cart" class="btn addtocart" name="add" value="Add to cart">
+          </div>
+
+          {% include 'share-links-product' with product %}
         </div>
 
       </form>
@@ -104,8 +108,6 @@
       <a href="mailto:mary@bazazas.com?subject=Re: {{ product.title }}" id="add-to-cart">EMAIL INQUIRY</a>
 
     {% endif %}
-
-    {% include 'share-links-product' with product %}
 
   </div>
   <!-- End description -->

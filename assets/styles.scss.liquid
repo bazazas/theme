@@ -141,7 +141,7 @@ body, html {
   color: $dark-green;
   font-weight: normal;
   margin: 0;
-  min-width: 1000px;
+  min-width: 1215px;
 }
 
 body {
@@ -947,8 +947,30 @@ button.slick-prev::before{
 	content: "";
 }
 
+.product-buttons.stuck {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 960px;
+  margin-left: -480px;
+
+  @media screen and (max-width: 1215px) {
+    left: 0;
+    width: 1090px;
+    margin-left: 0;
+  }
+
+  .purchase,
+  .social-buttons {
+    width: 280px;
+    margin-right: 50px;
+    float: right;
+    clear: right;
+  }
+}
+
 .purchase {
-  margin-top: 30px;
+  padding-top: 30px;
 }
 
 #add-to-cart {
@@ -1267,7 +1289,6 @@ button.slick-prev::before{
   height: 100%;
   cursor: pointer;
   text-decoration: none;
-  background: transparent url({{ 'blank.gif' | asset_url }}); /* helps IE */
   z-index: 8040;
 }
 
