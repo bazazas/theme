@@ -10,9 +10,7 @@
       {% assign image_name = id_name | append: '.jpg' %}
       {% if settings[use_key] %}
         <div id="{{ id_name }}" {{ use_key }} {{ image_name }} {{ link_key }}>
-          {% unless settings[link_key] == blank %}<a href="{{ settings[link_key] }}">{% endunless %}
-              <img src="{{ image_name | asset_url }}" />
-          {% unless settings[link_key] == blank %}</a>{% endunless %}
+          <img src="{{ image_name | asset_url }}" />
         </div>
       {% endif %}
     {% endfor %}

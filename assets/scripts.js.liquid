@@ -99,6 +99,11 @@ $(function(){
     adaptiveHeight: true
   });
 
+  $('.orbit').click(function() {
+    console.log('clicked');
+    $('.orbit').slick('slickNext');
+  });
+
   $('.subnav a').hover(function(e){
     $(this).attr('data-title', $(this).attr('title'));
     $(this).removeAttr('title');
