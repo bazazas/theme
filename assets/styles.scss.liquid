@@ -310,10 +310,23 @@ nav.main {
   }
 
   ul ul.subnav li a.current,
-  ul ul.subnav li.current a,
-  ul ul.subnav li.current a.highlight {
+  ul ul.subnav li.current a, {
     @include schoolbook;
     font-size: 12pt;
+    line-height: 14pt;
+    margin: 0 0 1px;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  ul ul.subnav li.current a.highlight,
+  ul ul.subnav li a.highlight.current {
+    @include avant-garde;
+    letter-spacing: 1px;
+    font-size: 11pt;
     line-height: 14pt;
     margin: 0 0 1px;
     text-decoration: underline;
